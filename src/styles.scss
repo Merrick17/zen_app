@@ -1,0 +1,7 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+// or
+@import "~bootstrap/scss/bootstrap";
+
+// then import toastr scss
+@import "~ngx-toastr/toastr-bs4-alert.scss"

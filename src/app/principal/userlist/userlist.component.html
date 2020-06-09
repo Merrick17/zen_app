@@ -1,0 +1,61 @@
+<div class="table-wrapper">
+  <div class="table-title">
+    <div class="row">
+      <div class="col-sm-5"></div>
+      <div class="col-sm-7">
+        <a href="#" class="btn btn-primary"
+          ><i class="material-icons">&#xE147;</i>
+          <span>Ajouter un admin</span></a
+        >
+        <a href="#" class="btn btn-primary"
+          ><i class="material-icons">&#xE24D;</i>
+          <span>Export En Excel</span></a
+        >
+      </div>
+    </div>
+  </div>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nom</th>
+        <th>Date Creation</th>
+        <th>Role</th>
+        <th>Email</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of usersList">
+        <td>{{ user.id }}</td>
+        <td>
+          <a href="#"> {{ user.name }}</a>
+        </td>
+        <td>{{ user.created_at }}</td>
+        <td *ngIf="user.role == 2">Admin</td>
+        <td *ngIf="user.role == 1">Utilisateur</td>
+        <td>{{ user.email }}</td>
+        <td>
+          <a  class="settings" title="Settings" 
+            ><i class="material-icons">&#xE8B8;</i></a
+          >
+          <a  class="delete" title="Delete" (click)=" deleteUser(id)"
+            ><i class="material-icons">&#xE5C9;</i></a
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- <div class="clearfix">
+    <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
+    <ul class="pagination">
+      <li class="page-item disabled"><a href="#">Previous</a></li>
+      <li class="page-item"><a href="#" class="page-link">1</a></li>
+      <li class="page-item"><a href="#" class="page-link">2</a></li>
+      <li class="page-item active"><a href="#" class="page-link">3</a></li>
+      <li class="page-item"><a href="#" class="page-link">4</a></li>
+      <li class="page-item"><a href="#" class="page-link">5</a></li>
+      <li class="page-item"><a href="#" class="page-link">Next</a></li>
+    </ul>
+  </div> -->
+</div>
