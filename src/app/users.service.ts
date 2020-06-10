@@ -17,4 +17,29 @@ export class UsersService {
       },
     });
   }
+  deleteUser(id) {
+    let token = localStorage.getItem("token");
+    return this.http.delete(this.BASE_URL + "/user/delete/" + id, {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+  }
+  updateUser(id, role) {
+    let token = localStorage.getItem("token");
+    return this.http.post(this.BASE_URL + "/user/edit/" + id, {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+  }
+
+  getUserDetails() {
+    let token = localStorage.getItem("token");
+    return this.http.get(this.BASE_URL + "/details", {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+  }
 }

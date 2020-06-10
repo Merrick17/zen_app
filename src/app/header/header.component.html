@@ -1,26 +1,23 @@
 <header class="main-header">
   <div class="container_header">
     <div class="logo d-flex align-items-center">
-      <a href="#"> <strong class="logo_icon"> <img src="assets/images/small-logo.png" alt=""> </strong> <span class="logo-default"> <img src="assets/images/logo2.png" alt=""> </span> </a>
-      <div class="icon_menu full_menu">
-      
-      </div>
+      <a href="#">
+        <strong class="logo_icon">
+          <img src="assets/images/newlogo.png" alt="" />
+        </strong>
+        <span class="logo-default">
+          <img src="assets/images/newlogo.png" alt="" />
+        </span>
+      </a>
+      <div class="icon_menu full_menu"></div>
     </div>
     <div class="right_detail">
       <div class="row d-flex align-items-center min-h pos-md-r">
-        <div class="col-xl-5 col-3 search_col ">
-          <div class="top_function">
-
-            <div class="search">
-              <a id="toggle_res_search" data-toggle="collapse" data-target="#search_form" class="res-only-view collapsed" href="javascript:void(0);"
-              aria-expanded="false"> <i class=" icon-magnifier"></i> </a>
-               
-            </div>
-          </div>
+        <div class="col-xl-5 col-3 search_col">
+          <div class="top_function"></div>
         </div>
         <div class="col-xl-7 col-9 d-flex justify-content-end">
           <div class="right_bar_top d-flex align-items-center">
-
             <!-- notification_Start -->
             <!-- <div class="dropdown dropdown-notification">
               <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false"> <i class="fa fa-bell-o"></i> <span class="badge_coun"> 6 </span> </a>
@@ -58,19 +55,17 @@
             </div> -->
             <!--DropDown_Inbox_End -->
             <!-- Dropdown_User -->
-            <!-- <div class="dropdown dropdown-user">
-              <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="true"> <img class="img-circle pro_pic" src="assets/images/about-1.jpg" alt=""> </a>
-              <ul class="dropdown-menu dropdown-menu-default"> 
-                <li>
-                  <a href="index.html"> <i class="icon-logout"></i> Déconnecter </a>
-                </li>
-              </ul>
-            </div> -->
+            <div class="dropdown dropdown-user">
+              <button class="dropdown-toggle btn btn-outline-danger" (click)="logout()">
+                <span class="material-icons" style="margin-top: 10%;">
+                  exit_to_app
+                </span>
+              </button>
+            </div>
             <!-- Dropdown_User_End -->
           </div>
         </div>
       </div>
     </div>
   </div>
-
 </header>

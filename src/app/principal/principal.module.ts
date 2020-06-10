@@ -6,9 +6,10 @@ import { PrincipalComponent } from "./principal.component";
 import { Routes, RouterModule } from "@angular/router";
 
 import { HttpClientModule } from "@angular/common/http";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { UserlistComponent } from "./userlist/userlist.component";
 import { AdduserComponent } from "./adduser/adduser.component";
+import { EditComponent } from "./edit/edit.component";
 const routes: Routes = [
   {
     path: "",
@@ -16,7 +17,7 @@ const routes: Routes = [
     component: PrincipalComponent,
     children: [
       {
-        path: "users",
+        path: "",
         component: UserlistComponent,
       },
       {
@@ -24,8 +25,8 @@ const routes: Routes = [
         component: AdduserComponent,
       },
       {
-        path: "",
-        redirectTo: "users",
+        path: "edituser/:id",
+        component: EditComponent,
       },
     ],
   },
@@ -38,12 +39,14 @@ const routes: Routes = [
 
     UserlistComponent,
     AdduserComponent,
+    EditComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
 })
 export class PrincipalModule {}

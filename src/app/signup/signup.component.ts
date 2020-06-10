@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { MustMatch } from "./mismatch.validator";
 import { AuthService } from "../auth.service";
-import { ToastrService } from 'ngx-toastr';
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-signup",
@@ -11,8 +11,12 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class SignupComponent implements OnInit {
   registerForm: FormGroup;
-  submitted: boolean;
-  constructor(private formBuilder: FormBuilder, private auth: AuthService, private toastr: ToastrService) {
+  submitted: boolean = false;
+  constructor(
+    private formBuilder: FormBuilder,
+    private auth: AuthService,
+    private toastr: ToastrService
+  ) {
     this.registerForm = this.formBuilder.group(
       {
         name: ["", [Validators.required]],
@@ -34,21 +38,22 @@ export class SignupComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     } else {
-      this.auth.register(this.registerForm.value).subscribe((data) => {
-        let result: any = data;
-        if(result.success!=null && result.success!=undefined)
-        {
-          localStorage.setItem('token',result.success.token)
+      this.auth.register(this.registerForm.value).subscribe(
+        (data) => {
+          let result: any = data;
+          if (result.success != null && result.success != undefined) {
+            localStorage.setItem("token", result.success.token);
+          }
+          console.log(result);
+        },
+        (err) => {
+          console.log(err);
+          this.toastr.warning("Erreur!", "Email déja existant !");
         }
-        console.log(result);
-      },err=>{
-        console.log(err);
-        this.toastr.warning(
-          "Erreur!",
-          "Email déja existant !"
-        );
-      });
+      );
     }
   }
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
 }

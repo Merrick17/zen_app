@@ -60,7 +60,12 @@
               *ngIf="submitted && registerForm.controls.name.errors"
               class="invalid-feedback d-block"
             >
-              <div *ngIf="registerForm.controls.password.errors.required">
+              <div
+                *ngIf="
+                  submitted == true &&
+                  registerForm.controls.password.errors.required
+                "
+              >
                 Le nom est obligatoire
               </div>
             </div>
@@ -71,12 +76,24 @@
               type="password"
               class="form-control"
               placeholder=""
-              required
               formControlName="c_password"
             />
-            <div *ngIf="registerForm.controls.c_password.errors.required">Veuillez confirmer le mot de passe </div>
-                                <div *ngIf="registerForm.controls.c_password.errors.mustMatch">Mot de passe et confirmation doit etre egaux</div>
-       
+            <div class="invalid-feedback d-block" *ngIf="submitted && registerForm.controls.c_password.errors">
+              <div
+                *ngIf="
+                  submitted && registerForm.controls.c_password.errors.required
+                "
+              >
+                Veuillez confirmer le mot de passe
+              </div>
+              <div
+                *ngIf="
+                  submitted && registerForm.controls.c_password.errors.mustMatch
+                "
+              >
+                Mot de passe et confirmation doit etre egaux
+              </div>
+            </div>
           </div>
 
           <button type="submit" class="btn btn-info btn-flat m-b-30 m-t-30">

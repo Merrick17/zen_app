@@ -3,14 +3,13 @@
     <div class="row">
       <div class="col-sm-5"></div>
       <div class="col-sm-7">
-        <a href="#" class="btn btn-primary"
-          ><i class="material-icons">&#xE147;</i>
-          <span>Ajouter un admin</span></a
-        >
-        <a href="#" class="btn btn-primary"
-          ><i class="material-icons">&#xE24D;</i>
-          <span>Export En Excel</span></a
-        >
+        <a class="btn btn-primary" [routerLink]="['adduser']">
+          <i class="material-icons">&#xE147;</i>
+          <span>Ajouter Utilisateur</span>
+        </a>
+        <button href="#" class="btn btn-primary" (click)="ExportToCSV()">
+          <i class="material-icons">&#xE24D;</i> <span>Exporter</span>
+        </button>
       </div>
     </div>
   </div>
@@ -36,10 +35,10 @@
         <td *ngIf="user.role == 1">Utilisateur</td>
         <td>{{ user.email }}</td>
         <td>
-          <a  class="settings" title="Settings" 
+          <a class="settings" title="Settings"
             ><i class="material-icons">&#xE8B8;</i></a
           >
-          <a  class="delete" title="Delete" (click)=" deleteUser(id)"
+          <a class="delete" title="Delete" (click)="deleteUser(user.id)"
             ><i class="material-icons">&#xE5C9;</i></a
           >
         </td>
@@ -58,4 +57,11 @@
       <li class="page-item"><a href="#" class="page-link">Next</a></li>
     </ul>
   </div> -->
+</div>
+<div class="row">
+  <div class="col">
+    <div style="width: 40%;">
+      <canvas #lineCanvas></canvas>
+    </div>
+  </div>
 </div>
